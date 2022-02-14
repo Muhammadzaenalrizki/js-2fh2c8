@@ -1,1 +1,39 @@
-<div id="app"></div>
+<div style="display: flex; justify-content: center">
+  <div id="typed-strings" style="display: flex; justify-content: center">
+    <h1 style="color: red" id="no"></h1>
+  </div>
+  <span
+    id="typed"
+    style="color: red; display: flex; justify-content: center"
+  ></span>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  let no = 0;
+
+  const interval = setInterval(function () {
+    no++;
+    if (no === 1) {
+      document.querySelector('#no').innerHTML = '1';
+    } else if (no == 2) {
+      document.querySelector('#no').innerHTML = '2';
+    } else if (no == 3) {
+      document.querySelector('#no').innerHTML = '3';
+    }
+
+    if (no === 4) {
+      stop();
+    }
+  }, 1000);
+  function stop() {
+    clearInterval(interval);
+    document.querySelector('#typed-strings').innerHTML =
+      ' <h1 style="color:red;">best</h1> ';
+    new Typed('#typed', {
+      stringsElement: '#typed-strings',
+      loop: true,
+      typeSpeed: 100,
+    });
+  }
+</script>
